@@ -42,14 +42,14 @@ export default class ImportScreen extends Component {
   }
 
   async newWalletFromSecret() {
-    let secret = Cryto.decode(this.state.secret);
+    let secret = Crypto.decode(this.state.secret);
     let address = Crypto.getPublic(secret);
     let encryptedSecret = await Crypto.encrypt(secret, this.state.passwd);
 
     this.setState({ loading: false });
 
     global.Wallet = new Wallet(address, encryptedSecret);
-    this.props.navigation.navigate("WalletScreen");
+    this.props.navigation.navigate("WalletScreens");
   }
 
   async newWalletFromEncryptedSecret() {
@@ -65,7 +65,7 @@ export default class ImportScreen extends Component {
         Crypto.getPublic(decryptedSecret),
         this.state.secret
       );
-      this.props.navigation.navigate("WalletScreen");
+      this.props.navigation.navigate("WalletScreens");
     } else {
       this.passwordInRef.current.shake();
       this.passwordInRef.current.clear();
