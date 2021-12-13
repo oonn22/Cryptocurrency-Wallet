@@ -51,7 +51,7 @@ export default class CreateWalletScreen extends Component {
         <View style={Styles.containerRow}>
           {
             !this.state.loading ? (
-              <RejectButton navigation={this.props.navigation} /> //if not loading
+              <RejectButton navigation={this.props.navigation} /> //if not loading, display reject button
             ) : undefined //else
           }
 
@@ -66,7 +66,7 @@ export default class CreateWalletScreen extends Component {
                   let wallet = await Wallet.createWallet(this.state.passwd);
                   this.setState({ loading: false });
 
-                  global.Wallet = wallet; //TODO replace this global as bad design
+                  global.Wallet = wallet;
                   this.props.navigation.navigate("WalletScreens");
                 }, 100); //delay allows loading anim to play on mobile
               } else {

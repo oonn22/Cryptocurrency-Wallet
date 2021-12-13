@@ -7,6 +7,8 @@ import Styles from "../Styles/Styles.js";
 import PasswordPrompt from "../Components/PasswordPrompt.js";
 import Alert from "../Components/Alert.js";
 
+//todo allow long press to paste
+
 export default class WalletScreen extends Component {
   state = {
     recipient: "",
@@ -210,5 +212,3 @@ export default class WalletScreen extends Component {
     );
   }
 }
-
-//todo allow long press to paste

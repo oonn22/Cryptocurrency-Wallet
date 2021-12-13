@@ -6,8 +6,6 @@ import Crypto from "../Crypto/Crypto.js";
 import Styles from "../Styles/Styles.js";
 import Wallet from "../Wallet/Wallet.js";
 
-//TODO validate inputs
-
 export default class ImportScreen extends Component {
   state = {
     secret: "",
