@@ -126,15 +126,13 @@ class Block {
         "Blocks require a previousHash! set previousHash when building with: .withPreviousHash(PREVIOUS HASH HERE)"
       );
 
-    // Sets optional parameters
-    this.hash = blockBuilder.hash === undefined ? "AAAA" : blockBuilder.hash; //TODO check why I set values here
-    this.sig = blockBuilder.sig === undefined ? "AAAA" : blockBuilder.sig;
-
-    //Sets required parameters if all included
+    //Sets block parameters
     this.sender = blockBuilder.sender;
     this.recipient = blockBuilder.recipient;
     this.amount = blockBuilder.amount;
     this.previousHash = blockBuilder.previousHash;
+    this.hash = blockBuilder.hash;
+    this.sig = blockBuilder.sig;
   }
 
   /**
