@@ -1,0 +1,39 @@
+{
+  "files": {
+    "app.js": "/Cryptocurrency-Wallet/static/js/app.f769b6eb.chunk.js",
+    "app.js.map": "/Cryptocurrency-Wallet/static/js/app.f769b6eb.chunk.js.map",
+    "runtime~app.js": "/Cryptocurrency-Wallet/static/js/runtime~app.9cdf45fe.js",
+    "runtime~app.js.map": "/Cryptocurrency-Wallet/static/js/runtime~app.9cdf45fe.js.map",
+    "static/js/2.c7cd51f7.chunk.js": "/Cryptocurrency-Wallet/static/js/2.c7cd51f7.chunk.js",
+    "static/js/2.c7cd51f7.chunk.js.map": "/Cryptocurrency-Wallet/static/js/2.c7cd51f7.chunk.js.map",
+    "fonts/AntDesign.ttf": "/Cryptocurrency-Wallet/./fonts/AntDesign.ttf",
+    "fonts/Entypo.ttf": "/Cryptocurrency-Wallet/./fonts/Entypo.ttf",
+    "fonts/Feather.ttf": "/Cryptocurrency-Wallet/./fonts/Feather.ttf",
+    "fonts/FontAwesome.ttf": "/Cryptocurrency-Wallet/./fonts/FontAwesome.ttf",
+    "fonts/FontAwesome5_Brands.ttf": "/Cryptocurrency-Wallet/./fonts/FontAwesome5_Brands.ttf",
+    "fonts/FontAwesome5_Solid.ttf": "/Cryptocurrency-Wallet/./fonts/FontAwesome5_Solid.ttf",
+    "fonts/Fontisto.ttf": "/Cryptocurrency-Wallet/./fonts/Fontisto.ttf",
+    "fonts/Foundation.ttf": "/Cryptocurrency-Wallet/./fonts/Foundation.ttf",
+    "fonts/Ionicons.ttf": "/Cryptocurrency-Wallet/./fonts/Ionicons.ttf",
+    "fonts/MaterialCommunityIcons.ttf": "/Cryptocurrency-Wallet/./fonts/MaterialCommunityIcons.ttf",
+    "fonts/MaterialIcons.ttf": "/Cryptocurrency-Wallet/./fonts/MaterialIcons.ttf",
+    "fonts/SimpleLineIcons.ttf": "/Cryptocurrency-Wallet/./fonts/SimpleLineIcons.ttf",
+    "favicon-16.png": "/Cryptocurrency-Wallet/favicon-16.png",
+    "favicon-32.png": "/Cryptocurrency-Wallet/favicon-32.png",
+    "favicon.ico": "/Cryptocurrency-Wallet/favicon.ico",
+    "index.html": "/Cryptocurrency-Wallet/index.html",
+    "manifest.json": "/Cryptocurrency-Wallet/manifest.json",
+    "serve.json": "/Cryptocurrency-Wallet/serve.json",
+    "static/js/2.c7cd51f7.chunk.js.LICENSE.txt": "/Cryptocurrency-Wallet/static/js/2.c7cd51f7.chunk.js.LICENSE.txt",
+    "static/media/IconCoin.png": "/Cryptocurrency-Wallet/static/media/IconCoin.597a9af4.png",
+    "static/media/bell.png": "/Cryptocurrency-Wallet/static/media/bell.cf04af27.png",
+    "static/media/heart.png": "/Cryptocurrency-Wallet/static/media/heart.23b5c2c0.png",
+    "static/media/rocket.png": "/Cryptocurrency-Wallet/static/media/rocket.d2f3bf41.png",
+    "static/media/star.png": "/Cryptocurrency-Wallet/static/media/star.69c71386.png"
+  },
+  "entrypoints": [
+    "static/js/runtime~app.9cdf45fe.js",
+    "static/js/2.c7cd51f7.chunk.js",
+    "static/js/app.f769b6eb.chunk.js"
+  ]
+}
