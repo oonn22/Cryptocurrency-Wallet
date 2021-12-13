@@ -45,10 +45,3 @@ function WalletScreens() {
     </Drawer.Navigator>
   );
 }
-
-//TODO left off creating wallet class and trying to get working node to know whet return values look like.
-
-//TODO https://docs.expo.dev/versions/latest/sdk/async-storage/ store wallets
-
-// s KCUYX726TM5F6ZWI2JOT2WEIFAMND2TECIT6HU4TZQM2O3XO6WRQ
-// a DSFLYXMK46AEVZWS5VQ5KWMYTM3MMYTCKW7FG4WIKBPUQ2DMKY5Q
