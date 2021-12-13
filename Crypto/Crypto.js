@@ -26,7 +26,7 @@ class Crypto {
   }
 
   /**
-   *
+   * returns a byte array of the decrypted data, or null if unsuccessful decryption
    * @param {String} encrypted
    * @param passwd
    * @return {Uint8Array | null}
@@ -72,6 +72,10 @@ class Crypto {
     return this.encode(getPublic(secret));
   }
 
+  /**
+   * returns a new randomly generated secret for private key use.
+   * @returns {Uint8Array}
+   */
   static newSecret() {
     return this.randomBytes(32);
   }
