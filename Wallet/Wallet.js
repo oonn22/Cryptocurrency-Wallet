@@ -1,6 +1,9 @@
 const Crypto = require("../Crypto/Crypto.js");
 const Block = require("./Block.js");
 
+/**
+ * An account on the DAG and the keys required to control it
+ */
 class Wallet {
   constructor(address, encryptedSecret) {
     this.address = address;
@@ -25,10 +28,18 @@ class Wallet {
     return new Wallet(address, encryptedSecret);
   }
 
+  /**
+   * Decrypts a wallet secret using a password
+   * @param {String} password
+   * @returns
+   */
   async decryptSecret(password) {
     return await Crypto.decrypt(this.encrypted, password);
   }
 
+  /**
+   * Retrieves and updates account information from the network
+   */
   async getAccount() {
     try {
       let res = await fetch(
@@ -56,7 +67,8 @@ class Wallet {
    * Creates an outgoing block from this wallet, and sends it to a node
    * @param {Number} amount
    * @param {String} recipient
-   * @param {Uint8Array} secret
+   * @param {String} passwd if secret not included, passwd needed to sign transaction
+   * @param {Uint8Array | undefined} secret
    * @returns {boolean}
    */
   async sendTransaction(amount, recipient, passwd, secret = undefined) {
