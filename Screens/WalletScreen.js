@@ -94,19 +94,6 @@ export default class WalletScreen extends Component {
     this.toast.show("Copied to clipboard.", { duration: 2000 });
   }
 
-  WalletIcon() {
-    return (
-      <View style={Styles.containerImage}>
-        <TouchableHighlight onPress={async () => await this.updateWallet()}>
-          <Image
-            source={require("../assets/IconCoin.png")}
-            style={Styles.image}
-          />
-        </TouchableHighlight>
-      </View>
-    );
-  }
-
   render() {
     return (
       <View style={Styles.container}>
@@ -139,7 +126,7 @@ export default class WalletScreen extends Component {
           onPasswordReject={(checkPasswdReturn) => {}}
           onCancel={() => this.setState({ passwdOverlayVisible: false })}
         />
-        {this.WalletIcon()}
+        <WalletIcon onPress={async () => await this.updateWallet()} />
         <View style={{ flex: 1 }}>
           <Text h2={true} h2Style={Styles.headerText}>
             {this.balanceToString()}
@@ -208,6 +195,29 @@ export default class WalletScreen extends Component {
             }}
           />
         </View>
+      </View>
+    );
+  }
+}
+
+class WalletIcon extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <View style={Styles.containerImage}>
+        <TouchableHighlight
+          activeOpacity={0.6}
+          underlayColor="#00C6E5"
+          onPress={async () => await this.props.onPress()}
+        >
+          <Image
+            source={require("../assets/IconCoin.png")}
+            style={Styles.image}
+          />
+        </TouchableHighlight>
       </View>
     );
   }
