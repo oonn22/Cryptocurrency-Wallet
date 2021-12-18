@@ -58,6 +58,11 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     width: "100%",
   },
+  highlight: {
+    activeOpacity: 0.6,
+    color: "red",
+    underlayColor: "#00C6E5",
+  },
 });
 
 export default styles;
