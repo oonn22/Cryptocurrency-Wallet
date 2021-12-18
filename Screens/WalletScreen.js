@@ -94,6 +94,11 @@ export default class WalletScreen extends Component {
     this.toast.show("Copied to clipboard.", { duration: 2000 });
   }
 
+  longPressPaste = async function() {
+    let userInput = await Clipboard.getStringAsync();
+    this.setState({ recipient: userInput });
+  }
+
   render() {
     return (
       <View style={Styles.container}>
@@ -150,17 +155,31 @@ export default class WalletScreen extends Component {
             alignSelf: "stretch",
           }}
         >
-          <Input
-            ref={this.recipientInRef}
-            editable={!this.state.loading}
-            label="Enter Recipient Address: "
-            placeholder="Address"
-            leftIcon={{ type: "font-awesome-5", name: "level-up-alt" }}
-            onChangeText={(text) => this.setState({ recipient: text })}
-            maxLength={52}
-            style={Styles.textInput}
-            containerStyle={Styles.textInputContainer}
-          />
+          <TouchableHighlight 
+            style={Styles.highlight}
+            onLongPress={() => {
+              this.longPressPaste()
+            }}
+            delayLongPress={700}
+          >
+            <Input
+              value={this.state.recipient}
+              ref={this.recipientInRef}
+              editable={!this.state.loading}
+              label="Enter Recipient Address: "
+              placeholder="Address"
+              leftIcon={{ type: "font-awesome-5", name: "level-up-alt" }}
+              onChangeText={(text) => {
+                this.setState({ recipient: text })
+                //Function to shake if maxLength is met
+                //Should only be base32 characters, max length 52
+              }}
+              maxLength={52}
+              style={Styles.textInput}
+              containerStyle={[Styles.textInputContainer, {backgroundColor:"#1c41b7"}]}
+              //TODO Check background colour for all views, should be inherited??
+            />  
+          </TouchableHighlight>
           <Input
             ref={this.amountInRef}
             editable={!this.state.loading}
@@ -209,8 +228,7 @@ class WalletIcon extends Component {
     return (
       <View style={Styles.containerImage}>
         <TouchableHighlight
-          activeOpacity={0.6}
-          underlayColor="#00C6E5"
+          style={Styles.highlight}
           onPress={async () => await this.props.onPress()}
         >
           <Image
