@@ -99,6 +99,12 @@ export default class WalletScreen extends Component {
     this.setState({ recipient: userInput });
   }
 
+  async invalidLength(key) {
+    if (this.state.recipient.length === 52 && key.length === 1){
+      this.recipientInRef.current.shake();
+    }
+  }
+
   render() {
     return (
       <View style={Styles.container}>
@@ -171,9 +177,8 @@ export default class WalletScreen extends Component {
               leftIcon={{ type: "font-awesome-5", name: "level-up-alt" }}
               onChangeText={(text) => {
                 this.setState({ recipient: text })
-                //Function to shake if maxLength is met
-                //Should only be base32 characters, max length 52
               }}
+              onKeyPress={(e) => {this.invalidLength(e.nativeEvent.key)}}
               maxLength={52}
               style={Styles.textInput}
               containerStyle={[Styles.textInputContainer, {backgroundColor:"#1c41b7"}]}
