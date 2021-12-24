@@ -12,7 +12,6 @@ import Alert from "../Components/Alert.js";
 export default class WalletScreen extends Component {
   state = {
     recipient: "",
-    recipientMaxLength: false,
     sendAmount: "",
     balance: 0,
     loading: false,
