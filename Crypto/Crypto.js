@@ -3,11 +3,11 @@ const saltLength = require("./Hash.js").saltLength;
 const getRandomBytes = require("./Random.js");
 const { signMessage, verifySignature, getPublic } = require("./Sign.js");
 const { base32Encode, base32Decode } = require("./Encode.js");
-const { encrypt, decrypt, nonceLength } = require("./Encrypt.js");
+const { encrypt, decrypt } = require("./Encrypt.js");
 
 class Crypto {
   /**
-   * returns a 32 byte hash of data provided
+   * returns a 32 byte, 256-bit hash of data provided.
    * @param {Uint8Array} bytes
    * @return {Uint8Array}
    */
