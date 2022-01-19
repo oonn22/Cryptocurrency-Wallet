@@ -36,7 +36,7 @@ export default class TransactionGUI extends Component {
   }
 
   validateSendAmountText(text) {
-    let valid = /^$|^\d{1,10}?(\.(\d{0,6}))?$/;
+    let valid = /^$|^\d{1,10}?(\.(\d{0,4}))?$/;
 
     if (valid.test(text)) {
       this.setState({ sendAmount: text });
@@ -52,11 +52,11 @@ export default class TransactionGUI extends Component {
       if (amount.includes(".")) {
         let amounts = amount.split(".");
         return (
-          Number.parseInt(amounts[0]) * 1000000 +
-          Number.parseInt(amounts[1] + "0".repeat(6 - amounts[1].length))
+          Number.parseInt(amounts[0]) * 10000 +
+          Number.parseInt(amounts[1] + "0".repeat(4 - amounts[1].length))
         );
       } else {
-        return Number.parseInt(amount) * 1000000;
+        return Number.parseInt(amount) * 10000;
       }
     } else return null;
   }
@@ -78,6 +78,10 @@ export default class TransactionGUI extends Component {
     }
 
     this.setState({ loading: false });
+
+    setTimeout(async () => {
+      await this.props.afterSend();
+    }, 500);
   }
 
   render() {
