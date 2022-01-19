@@ -94,19 +94,17 @@ class Wallet {
     try {
       let res = await fetch(this.nodeURL + "/block", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(block),
+        mode: "cors",
       });
 
-      let json = res.json();
-      console.log(json.msg);
+      let json = await res.json();
 
-      if (res.status === 200) return true;
+      if (res.status === 200 || res.status === 201) return true;
       else return false;
     } catch (err) {
+      console.log("Error Sending transaction:");
       console.log(err);
       return false;
     }
