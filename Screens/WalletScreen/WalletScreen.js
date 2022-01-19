@@ -55,6 +55,9 @@ export default class WalletScreen extends Component {
             wallet={this.wallet}
             loading={this.state.loading}
             balance={this.state.balance}
+            afterSend={async () => {
+              await this.updateWallet();
+            }}
           />
         </View>
       </View>
