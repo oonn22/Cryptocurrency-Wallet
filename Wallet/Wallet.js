@@ -10,7 +10,7 @@ class Wallet {
     this.inChain = [];
     this.outChain = [];
     this.encrypted = encryptedSecret;
-    this.nodeURL = "http://localhost:6969";
+    this.nodeURL = "https://oonn22-node.tk:2096";
   }
 
   /**
