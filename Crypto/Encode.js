@@ -1,6 +1,6 @@
-const rfc = require('rfc4648');
-const strOpts = {pad: false};
-const parseOpts = {loose: true};
+const rfc = require("rfc4648");
+const strOpts = { pad: false };
+const parseOpts = { loose: true };
 
 /**
  * Encodes bytes to base32 string
@@ -8,7 +8,7 @@ const parseOpts = {loose: true};
  * @return {string}
  */
 function base32Encode(bytes) {
-    return rfc.base32.stringify(bytes, strOpts);
+  return rfc.base32.stringify(bytes, strOpts);
 }
 
 /**
@@ -17,7 +17,7 @@ function base32Encode(bytes) {
  * @return {Uint8Array}
  */
 function base32Decode(s) {
-    return rfc.base32.parse(s, parseOpts);
+  return rfc.base32.parse(s, parseOpts);
 }
 
 /**
@@ -26,7 +26,7 @@ function base32Decode(s) {
  * @return {string}
  */
 function hexEncode(bytes) {
-    return rfc.base16.stringify(bytes, strOpts);
+  return rfc.base16.stringify(bytes, strOpts);
 }
 
 /**
@@ -35,7 +35,8 @@ function hexEncode(bytes) {
  * @return {Uint8Array}
  */
 function hexDecode(s) {
-    return rfc.base16.parse(s, parseOpts);
+  if (s.length % 2 === 1) s = "0" + s;
+  return rfc.base16.parse(s, parseOpts);
 }
 
 /**
@@ -44,7 +45,7 @@ function hexDecode(s) {
  * @return {string}
  */
 function base64urlEncode(bytes) {
-    return rfc.base64url.stringify(bytes, strOpts);
+  return rfc.base64url.stringify(bytes, strOpts);
 }
 
 /**
@@ -53,14 +54,14 @@ function base64urlEncode(bytes) {
  * @return {Uint8Array}
  */
 function base64urlDecode(s) {
-    return rfc.base64url.parse(s, parseOpts);
+  return rfc.base64url.parse(s, parseOpts);
 }
 
 module.exports = {
-    base32Encode: base32Encode,
-    base32Decode: base32Decode,
-    hexEncode: hexEncode,
-    hexDecode: hexDecode,
-    base64urlEncode: base64urlEncode,
-    base64urlDecode: base64urlDecode
-}
+  base32Encode: base32Encode,
+  base32Decode: base32Decode,
+  hexEncode: hexEncode,
+  hexDecode: hexDecode,
+  base64urlEncode: base64urlEncode,
+  base64urlDecode: base64urlDecode,
+};

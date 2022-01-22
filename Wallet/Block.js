@@ -139,11 +139,16 @@ class Block {
    * Determines a blocks hash
    */
   determineHash() {
-    let toHash = this.sender + this.recipient;
-    let amount = Crypto.encode(hexDecode(this.amount.toString(16)));
-    toHash += amount + this.previousHash;
+    let sender = Crypto.encode(Crypto.hash(Crypto.decode(this.sender)));
+    let recipient = Crypto.encode(Crypto.hash(Crypto.decode(this.recipient)));
+    let amount = Crypto.encode(
+      Crypto.hash(hexDecode(this.amount.toString(16)))
+    );
+    let prevHash = Crypto.encode(Crypto.hash(Crypto.decode(this.previousHash)));
 
-    return Crypto.encode(Crypto.hash(Crypto.decode(toHash)));
+    let toHash = Crypto.decode(sender + recipient + amount + prevHash);
+
+    return Crypto.encode(Crypto.hash(toHash));
   }
 
   /**

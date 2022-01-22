@@ -1,7 +1,10 @@
 const SHA = require("sha.js");
+const SHA3 = require("js-sha3").sha3_256;
+const Keccak = require("js-sha3").keccak256;
 const scryptAsync = require("scrypt-js").scrypt;
 const randomBytes = require("./Random.js");
 const TextEncoder = require("text-encoder-lite").TextEncoderLite;
+const hexEncode = require("./Encode.js").hexEncode;
 
 const N = 16384,
   r = 8,
@@ -10,21 +13,34 @@ const N = 16384,
 const saltLength = 32;
 
 /**
- * Returns the hash of the data provided
+ * Returns the 256 bit hash of the data provided
  * @param {Uint8Array} bytes
  * @return {Uint8Array}
  */
 function hash(bytes) {
-  return sha2Hash(bytes);
+  return sha3Hash(bytes);
 }
 
 /**
- * Returns the SHA2 hash of the data provided
+ * Returns the SHA2-256 hash of the data provided
  * @param {Uint8Array} bytes
  * @return {Uint8Array}
  */
 function sha2Hash(bytes) {
   return SHA("sha256").update(bytes).digest();
+}
+
+function sha3Hash(bytes) {
+  return new Uint8Array(SHA3.digest(bytes));
+}
+
+/**
+ * returns keccak256 hash of bytes provided
+ * @param {Uint8Array} bytes
+ * @return {Uint8Array}
+ */
+ function keccakHash(bytes) {
+   return new Uint8Array(Keccak.digest(bytes));
 }
 
 /**

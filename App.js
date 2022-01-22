@@ -7,7 +7,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import Toast from "react-native-toast-notifications";
 
 import StartScreen from "./Screens/StartScreen";
-import WalletScreen from "./Screens/WalletScreen";
+import WalletScreen from "./Screens/WalletScreen/WalletScreen";
 import ImportScreen from "./Screens/ImportScreen";
 import CreateWalletScreen from "./Screens/CreateWalletScreen";
 import SettingsScreen from "./Screens/SettingsScreen";
