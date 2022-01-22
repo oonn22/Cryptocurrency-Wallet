@@ -1,9 +1,7 @@
 import React, { Component, useState } from "react";
 import { View, TouchableHighlight } from "react-native";
 import ScreenHeader from "../../Components/ScreenHeader.js";
-import * as Clipboard from "expo-clipboard";
 import Styles from "../../Styles/Styles.js";
-import Alert from "../../Components/Alert.js";
 
 import WalletIcon from "./Components/WalletIcon";
 import BalanceDisplay from "./Components/BalanceDisplay.js";
